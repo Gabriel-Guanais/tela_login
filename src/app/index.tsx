@@ -4,7 +4,7 @@ export default function Index() {
   return (
     <View>
       <Text>Hello Gay</Text>
-      <Text>gaybriel</Text>
+      <Text>gabriel</Text>
     </View>
   );
 }
