@@ -1,3 +1,4 @@
+import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -27,6 +28,8 @@ export default function Index() {
             autoCapitalize="none"
           />
           <Input placeholder="Senha" secureTextEntry />
+
+          <Button label="Entrar" onPress={() => {}} />
         </View>
       </ScrollView>
     </SafeAreaView>
