@@ -31,6 +31,10 @@ export default function Index() {
 
           <Button label="Entrar" onPress={() => {}} />
         </View>
+
+        <Text style={styles.footerText}>
+          Não tem uma conta? Cadastre-se aqui
+        </Text>
       </ScrollView>
     </SafeAreaView>
   );
@@ -70,5 +74,11 @@ const styles = StyleSheet.create({
   form: {
     marginTop: 24,
     gap: 16,
+  },
+
+  footerText: {
+    textAlign: "center",
+    marginTop: 24,
+    color: "#585860",
   },
 });
