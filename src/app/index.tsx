@@ -1,5 +1,6 @@
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
+import { Link } from "expo-router";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -33,7 +34,10 @@ export default function Index() {
         </View>
 
         <Text style={styles.footerText}>
-          Não tem uma conta? Cadastre-se aqui
+          Não tem uma conta?
+          <Link href="/signup" style={styles.footerLink}>
+            Cadastre-se aqui
+          </Link>
         </Text>
       </ScrollView>
     </SafeAreaView>
@@ -80,5 +84,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 24,
     color: "#585860",
+  },
+
+  footerLink: {
+    color: "#2b4de2",
+    fontWeight: "bold",
   },
 });
