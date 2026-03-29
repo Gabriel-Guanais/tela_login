@@ -1,45 +1,59 @@
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import { Link } from "expo-router";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView
-        style={styles.scroll}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false} // esconde a barra de rolagem
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.select({ ios: "padding", android: "height" })}
       >
-        <Image
-          source={require("@/assets/img1.png")}
-          style={styles.illustration}
-        />
-
-        <Text style={styles.title}>Entrar</Text>
-        <Text style={styles.subtitle}>
-          Acesse sua conta com e-mail e senha.
-        </Text>
-
-        <View style={styles.form}>
-          <Input
-            placeholder="E-mail"
-            keyboardType="email-address"
-            autoCapitalize="none"
+        <ScrollView
+          style={styles.scroll}
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false} // esconde a barra de rolagem
+          keyboardShouldPersistTaps="handled"
+        >
+          <Image
+            source={require("@/assets/img1.png")}
+            style={styles.illustration}
           />
-          <Input placeholder="Senha" secureTextEntry />
 
-          <Button label="Entrar" onPress={() => {}} />
-        </View>
+          <Text style={styles.title}>Entrar</Text>
+          <Text style={styles.subtitle}>
+            Acesse sua conta com e-mail e senha.
+          </Text>
 
-        <Text style={styles.footerText}>
-          Não tem uma conta?
-          <Link href="/signup" style={styles.footerLink}>
-            Cadastre-se aqui
-          </Link>
-        </Text>
-      </ScrollView>
+          <View style={styles.form}>
+            <Input
+              placeholder="E-mail"
+              keyboardType="email-address"
+              autoCapitalize="none"
+            />
+            <Input placeholder="Senha" secureTextEntry />
+
+            <Button label="Entrar" onPress={() => {}} />
+          </View>
+
+          <Text style={styles.footerText}>
+            Não tem uma conta?
+            <Link href="/signup" style={styles.footerLink}>
+              Cadastre-se aqui
+            </Link>
+          </Text>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -57,6 +71,7 @@ const styles = StyleSheet.create({
   scrollContent: {
     padding: 32, // O padding vem para cá, empurrando o conteúdo interno
     paddingBottom: 64,
+    flexGrow: 1,
   },
 
   illustration: {
