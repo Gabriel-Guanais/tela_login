@@ -1,6 +1,6 @@
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import {
   Image,
   KeyboardAvoidingView,
@@ -43,7 +43,10 @@ export default function Index() {
             />
             <Input placeholder="Senha" secureTextEntry />
 
-            <Button label="Entrar" onPress={() => {}} />
+            <Button
+              label="Entrar"
+              onPress={() => router.push("/readingTime")}
+            />
           </View>
 
           <Text style={styles.footerText}>
